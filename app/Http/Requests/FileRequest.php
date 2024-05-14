@@ -23,6 +23,7 @@ class FileRequest extends FormRequest
     {
         return [
             'file' => 'required|file',
+            'ref_id_breed' => 'required|integer',
         ];
     }
 }

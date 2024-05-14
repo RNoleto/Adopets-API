@@ -10,6 +10,11 @@ class File extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'path'
+        'name', 'path', 'ref_id_breed'
     ];
+
+    public function breeds()
+    {
+        return $this->belongsTo(Breeds::class, 'ref_id_breed');
+    }
 }

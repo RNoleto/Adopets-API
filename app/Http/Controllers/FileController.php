@@ -12,17 +12,19 @@ class FileController extends Controller
 {
     public function upload(FileRequest $request)
     {
-        $input = $request->validated();
-        $file = $input['file'];
+        $validatedData = $request->validated();
+
+        $file = $request->file('file');
         $name = $file->getClientOriginalName();
         $path = $file->store('files', 'public');
 
-        File::query()->create([
+        $file = File::create([
             'name' => $name,
             'path' => $path,
+            'ref_id_breed' => $validatedData['ref_id_breed'],
         ]);
 
-        return response()->json(['message' => 'Arquivo enviado com sucesso'], 200);
+        return response()->json(['file' => $file, 'message' => 'Arquivo enviado com sucesso'], 200);
     }
 
     public function download(File $file)

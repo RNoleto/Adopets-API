@@ -14,7 +14,13 @@ return new class extends Migration
         Schema::create('files', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->unsignedBigInteger('ref_id_breed')->nullable();
             $table->string('path');
+
+
+            //Chave estrangeira referenciando a tabela breed
+            $table->foreign('ref_id_breed')->references('id')->on('breeds')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
