@@ -22,7 +22,7 @@ class FileRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'file' => 'required|image',
+            'file' => 'required|file',
         ];
     }
 }
