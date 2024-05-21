@@ -32,4 +32,10 @@ class FileController extends Controller
         return Storage::disk('public')
             ->download($file->path);
     }
+
+    public function index()
+    {
+        $files = File::all();
+        return response()->json($files);
+    }
 }

@@ -22,6 +22,7 @@ Route::post('/species', [SpeciesController::class, 'store']);
 //Upload de imagens
 Route::post('/files', [FileController::class, 'upload']);
 Route::get('/files/{file}', [FileController::class, 'download']);
+Route::get('/files', [FileController::class, 'index']);
 
 
 //Cadastro de breeds
