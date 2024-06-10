@@ -19,7 +19,7 @@ Route::post('login', [AuthController::class, 'login']);
 //Cadastro de species
 Route::get('/species', [SpeciesController::class, 'index']);
 Route::post('/species', [SpeciesController::class, 'store']);
-//Upload de imagens
+//Upload de imagens aqui
 Route::post('/files', [FileController::class, 'upload']);
 Route::get('/files/{file}', [FileController::class, 'download']);
 Route::get('/files', [FileController::class, 'index']);
