@@ -24,10 +24,11 @@ class AnimalsController extends Controller
             'ref_id_breed' => 'required|integer',
         ]);
 
-        $animals = Animals::create([
-            'animal' => $request->animal,
-            'ref_id_user' => $request->ref_id_user,
-        ]);
+        // $animals = Animals::create([
+        //     'animal' => $request->animal,
+        //     'ref_id_user' => $request->ref_id_user,
+        // ]);
+        $animals = Animals::create($request->all());
         return response()->json($animals, 201);
     }
 }
