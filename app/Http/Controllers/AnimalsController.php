@@ -20,9 +20,14 @@ class AnimalsController extends Controller
     {
         $request->validate([
             'animal' => 'required|string|max:255',
+            'ref_id_specie' => 'required|integer',
+            'ref_id_breed' => 'required|integer',
         ]);
 
-        $animals = Animals::create($request->all());
+        $animals = Animals::create([
+            'animal' => $request->animal,
+            'ref_id_user' => $request->ref_id_user,
+        ]);
         return response()->json($animals, 201);
     }
 }
