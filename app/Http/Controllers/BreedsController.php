@@ -31,4 +31,14 @@ class BreedsController extends Controller
         $breeds = Breeds::create($request->all());
         return response()->json($breeds, 201);
     }
+    public function show($id)
+    {
+        $breed = Breeds::find($id);
+
+        if (!$breed) {
+            return response()->json(['message' => 'Raça não encontrada'], 404);
+        }
+
+        return response()->json($breed);
+    }
 }

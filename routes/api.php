@@ -27,6 +27,7 @@ Route::get('/files', [FileController::class, 'index']);
 
 //Cadastro de breeds
 Route::get('/breeds', [BreedsController::class, 'index']);
+Route::get('/breeds/{id}', [BreedsController::class, 'show']);
 Route::post('/breeds', [BreedsController::class, 'store']);
 
 //Cadastro de animals
