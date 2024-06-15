@@ -4,12 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FileRequest;
+use App\Http\Resources\FileResource;
 use App\Models\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class FileController extends Controller
 {
+    public function index()
+    {
+        $files = File::all();
+
+        return FileResource::collection($files);
+    }
+
+
     public function upload(FileRequest $request)
     {
         $validatedData = $request->validated();
@@ -31,11 +40,5 @@ class FileController extends Controller
     {
         return Storage::disk('public')
             ->download($file->path);
-    }
-
-    public function index()
-    {
-        $files = File::all();
-        return response()->json($files);
     }
 }
