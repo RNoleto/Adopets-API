@@ -6,6 +6,7 @@ use App\Http\Controllers\BreedsController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SpeciesController;
+use App\Http\Controllers\AnimalsImagesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -33,3 +34,7 @@ Route::post('/breeds', [BreedsController::class, 'store']);
 //Cadastro de animals
 Route::get('/animals', [AnimalsController::class, 'index']);
 Route::post('/animals', [AnimalsController::class, 'store']);
+
+Route::post('/animalsimage', [AnimalsImagesController::class, 'upload']);
+Route::get('/animalsimage/{file}', [AnimalsImagesController::class, 'download']);
+Route::get('/animalsimage', [AnimalsImagesController::class, 'index']);
