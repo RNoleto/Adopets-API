@@ -21,17 +21,21 @@ class AnimalsImagesController extends Controller
     {
         $validatedData = $request->validated();
 
-        $file = $request->file('file');
-        $name = $file->getClientOriginalName();
-        $path = $file->store('files', 'public');
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $name = $file->getClientOriginalName();
+            $path = $file->store('files', 'public');
 
-        $file = AnimalsImages::create([
-            'name' => $name,
-            'path' => $path,
-            'ref_id_animal' => $validatedData['ref_id_animal'],
-        ]);
+            $fileModel = AnimalsImages::create([
+                'name' => $name,
+                'path' => $path,
+                'ref_id_animal' => $validatedData['ref_id_animal'],
+            ]);
 
-        return response()->json(['file' => $file, 'message' => 'Arquivo enviado com sucesso'], 200);
+            return response()->json(['file' => $fileModel, 'message' => 'Arquivo enviado com sucesso'], 200);
+        }
+
+        return response()->json(['message' => 'Nenhum arquivo encontrado para upload'], 400);
     }
 
     public function download(AnimalsImages $file)
