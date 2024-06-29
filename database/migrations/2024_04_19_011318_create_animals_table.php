@@ -17,15 +17,13 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->char('gender');
             $table->date('birth')->nullable();
-            $table->unsignedBigInteger('ref_id_specie')->nullable();
-            $table->unsignedBigInteger('ref_id_breed')->nullable();
+            $table->string('specie')->nullable();
+            $table->string('breed')->nullable();
             $table->unsignedBigInteger('ref_id_user')->nullable();
             $table->timestamp('deleted_at')->nullable();
             $table->tinyInteger('ativo')->default(1);
 
             // Chave estrangeira referenciando a tabela users, especies e breeds
-            $table->foreign('ref_id_specie')->references('id')->on('species')->onDelete('cascade');
-            $table->foreign('ref_id_breed')->references('id')->on('breeds')->onDelete('cascade');
             $table->foreign('ref_id_user')->references('id')->on('users')->onDelete('cascade');
 
             // Índices corrigidos

@@ -22,8 +22,8 @@ class AnimalsController extends Controller
             'name' => 'required|string|max:255',
             'gender' => 'required|string|in:M,F', // Exemplo de validação para sexo
             'birth' => 'required|date', // Exemplo de validação para data de nascimento
-            'ref_id_specie' => 'required|integer',
-            'ref_id_breed' => 'required|integer',
+            'specie' => 'required|string',
+            'breed' => 'required|string',
             'ref_id_user' => 'required|integer', // Inclua a validação para ref_id_user se necessário
         ]);
 
@@ -32,8 +32,8 @@ class AnimalsController extends Controller
         $animal->name = $request->name;
         $animal->gender = $request->gender;
         $animal->birth = $request->birth;
-        $animal->ref_id_specie = $request->ref_id_specie;
-        $animal->ref_id_breed = $request->ref_id_breed;
+        $animal->specie = $request->specie;
+        $animal->breed = $request->breed;
         $animal->ref_id_user = $request->ref_id_user; // Se necessário
 
         $animal->save();
