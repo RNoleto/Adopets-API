@@ -7,6 +7,7 @@ use App\Http\Controllers\FileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SpeciesController;
 use App\Http\Controllers\AnimalsImagesController;
+use App\Http\Controllers\VaccinesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -38,3 +39,8 @@ Route::post('/animals', [AnimalsController::class, 'store']);
 Route::post('/animalsimage', [AnimalsImagesController::class, 'upload']);
 Route::get('/animalsimage/{file}', [AnimalsImagesController::class, 'download']);
 Route::get('/animalsimage', [AnimalsImagesController::class, 'index']);
+
+
+//Vacinas
+Route::post('/vaccines', [VaccinesController::class, 'store']);
+Route::get('/vaccines', [VaccinesController::class, 'index']);
