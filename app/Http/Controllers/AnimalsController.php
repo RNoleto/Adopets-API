@@ -20,12 +20,12 @@ class AnimalsController extends Controller
     {
        $validatedData = $request->validate([
             'name' => 'required|string|max:255',
-            'gender' => 'required|string|in:M,F', // Exemplo de validação para sexo
-            'birth' => 'required|date', // Exemplo de validação para data de nascimento
+            'gender' => 'required|string|in:M,F',
+            'birth' => 'required|date', 
             'specie' => 'required|string',
             'breed' => 'required|string',
             'chip_number' => 'nullable|integer',
-            'ref_id_user' => 'required|integer', // Inclua a validação para ref_id_user se necessário
+            'ref_id_user' => 'required|integer',
         ]);
 
         // Crie o animal usando apenas os campos validados
@@ -35,7 +35,7 @@ class AnimalsController extends Controller
         $animal->birth = $validatedData['birth'];
         $animal->specie = $validatedData['specie'];
         $animal->breed = $validatedData['breed'];
-        $animal->chip_number = $request->has('chip_number') ? $validatedData['chip_number'] : null;
+        $animal->chip_number = $validatedData['chip_number'] ? $validatedData['chip_number'] : null;
         $animal->ref_id_user = $validatedData['ref_id_user'];
         
         $animal->save();
