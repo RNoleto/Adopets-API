@@ -34,6 +34,7 @@ Route::post('/breeds', [BreedsController::class, 'store']);
 
 //Cadastro de animals
 Route::get('/animals', [AnimalsController::class, 'index']);
+Route::get('/animals/{id}', [AnimalsController::class, 'show']);
 Route::post('/animals', [AnimalsController::class, 'store']);
 
 Route::post('/animalsimage', [AnimalsImagesController::class, 'upload']);

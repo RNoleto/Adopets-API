@@ -42,4 +42,15 @@ class AnimalsController extends Controller
 
         return response()->json($animal, 201);
     }
+
+    public function show($id)
+    {
+        $animal = Animals::find($id);
+
+        if(!$animal){
+            return response()->json(['message' => 'Animal não encontrado'], 404);
+        }
+
+        return response()->json($animal);
+    }
 }
