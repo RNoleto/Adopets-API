@@ -19,6 +19,7 @@ return new class extends Migration
             $table->date('birth')->nullable();
             $table->string('specie')->nullable();
             $table->string('breed')->nullable();
+            $table->integer('chip_number')->nullable();
             $table->unsignedBigInteger('ref_id_user')->nullable();
             $table->timestamp('deleted_at')->nullable();
             $table->tinyInteger('ativo')->default(1);

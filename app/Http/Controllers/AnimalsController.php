@@ -18,24 +18,26 @@ class AnimalsController extends Controller
     //Função para criar um novo animal
     public function store(Request $request)
     {
-        $request->validate([
+       $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'gender' => 'required|string|in:M,F', // Exemplo de validação para sexo
             'birth' => 'required|date', // Exemplo de validação para data de nascimento
             'specie' => 'required|string',
             'breed' => 'required|string',
+            'chip_number' => 'nullable|integer',
             'ref_id_user' => 'required|integer', // Inclua a validação para ref_id_user se necessário
         ]);
 
         // Crie o animal usando apenas os campos validados
         $animal = new Animals();
-        $animal->name = $request->name;
-        $animal->gender = $request->gender;
-        $animal->birth = $request->birth;
-        $animal->specie = $request->specie;
-        $animal->breed = $request->breed;
-        $animal->ref_id_user = $request->ref_id_user; // Se necessário
-
+        $animal->name = $validatedData['name'];
+        $animal->gender = $validatedData['gender'];
+        $animal->birth = $validatedData['birth'];
+        $animal->specie = $validatedData['specie'];
+        $animal->breed = $validatedData['breed'];
+        $animal->chip_number = $request->has('chip_number') ? $validatedData['chip_number'] : null;
+        $animal->ref_id_user = $validatedData['ref_id_user'];
+        
         $animal->save();
 
         return response()->json($animal, 201);
