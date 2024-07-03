@@ -44,4 +44,6 @@ Route::get('/animalsimage', [AnimalsImagesController::class, 'index']);
 
 //Vacinas
 Route::post('/vaccines', [VaccinesController::class, 'store']);
+Route::get('/vaccines/{id}', [VaccinesController::class, 'show']);
+Route::get('/vaccines/pet/{petId}', [VaccinesController::class, 'getByPetId']);
 Route::get('/vaccines', [VaccinesController::class, 'index']);

@@ -33,4 +33,26 @@ class VaccinesController extends Controller
 
         return response()->json($vaccine, 201);
     }
+
+    public function show($id)
+    {
+        $vaccine = Vaccines::find($id);
+
+        if(!$vaccine){
+            return response()->json(['message' => 'Vacina não encontrada'], 404);
+        }
+
+        return response()->json($vaccine);
+    }
+
+    public function getByPetId($petId)
+    {
+        $vaccines = Vaccines::where('ref_id_animal', $petId)->get();
+
+        if($vaccines->isEmpty()){
+            return response()->json(['message' => 'Nenhuma vacina encontrada para este pet'], 404);
+        }
+
+        return response()->json($vaccines);
+    }
 }
