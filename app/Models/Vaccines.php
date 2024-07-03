@@ -2,14 +2,16 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Vaccines extends Model
 {
-    use HasFactory;
+    use SoftDeletes;
 
-    protected $fillable = ['name', 'ref_id_animal'];
+    protected $fillable = ['name', 'local', 'date', 'ref_id_animal'];
+
+    protected $dates = ['deleted_at'];
 
     public function animal()
     {
