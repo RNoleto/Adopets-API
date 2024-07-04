@@ -7,6 +7,7 @@ use App\Http\Controllers\FileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SpeciesController;
 use App\Http\Controllers\AnimalsImagesController;
+use App\Http\Controllers\MedicinesController;
 use App\Http\Controllers\VaccinesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -48,3 +49,12 @@ Route::get('/vaccines/pet/{petId}', [VaccinesController::class, 'getByPetId']); 
 Route::get('/vaccines', [VaccinesController::class, 'index']); // Mostrar todas as vacinas
 Route::put('/vaccines/{id}', [VaccinesController::class, 'update']); // Atualizar uma determinada vacina
 Route::delete('/vaccines/{id}', [VaccinesController::class, 'destroy']); // Apagar uma vacina (deleted_at)
+
+
+//Medicamentos
+Route::post('/medicines', [MedicinesController::class, 'store']); 
+Route::get('/medicines/{id}', [MedicinesController::class, 'show']);
+Route::get('/medicines/pet/{petId}', [MedicinesController::class, 'getByPetId']);
+Route::get('/medicines', [MedicinesController::class, 'index']);
+Route::put('/medicines/{id}', [MedicinesController::class, 'update']);
+Route::delete('/medicines/{id}', [MedicinesController::class, 'destroy']);
