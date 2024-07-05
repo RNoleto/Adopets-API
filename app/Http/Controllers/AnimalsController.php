@@ -25,6 +25,7 @@ class AnimalsController extends Controller
             'specie' => 'required|string',
             'breed' => 'required|string',
             'chip_number' => 'nullable|integer',
+            'status' => 'required|integer',
             'ref_id_user' => 'required|integer',
         ]);
 
@@ -36,6 +37,7 @@ class AnimalsController extends Controller
         $animal->specie = $validatedData['specie'];
         $animal->breed = $validatedData['breed'];
         $animal->chip_number = $validatedData['chip_number'] ? $validatedData['chip_number'] : null;
+        $animal->status = $validatedData['status'];
         $animal->ref_id_user = $validatedData['ref_id_user'];
         
         $animal->save();
