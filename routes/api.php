@@ -8,6 +8,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SpeciesController;
 use App\Http\Controllers\AnimalsImagesController;
 use App\Http\Controllers\MedicinesController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\VaccinesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -18,6 +19,11 @@ Route::get('register', [RegisterController::class, 'index']);
 
 //Login de users
 Route::post('login', [AuthController::class, 'login']);
+
+//Rotas para usuarios
+Route::get('/users', [UserController::class, 'index']);
+Route::get('/users/{id}', [UserController::class, 'show']);
+Route::get('/users/{id}/animals', [UserController::class, 'animals']);
 
 //Cadastro de species
 Route::get('/species', [SpeciesController::class, 'index']);
