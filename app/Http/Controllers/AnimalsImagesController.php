@@ -42,4 +42,11 @@ class AnimalsImagesController extends Controller
     {
         return Storage::disk('public')->download($file->path);
     }
+
+    public function getByAnimalId($animalId)
+    {
+        $images = AnimalsImages::where('ref_id_animal', $animalId)->get();
+
+        return response()->json($images);
+    }
 }
