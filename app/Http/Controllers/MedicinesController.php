@@ -68,7 +68,7 @@ class MedicinesController extends Controller
         $medicine = Medicines::find($id);
 
         if (!$medicine) {
-            return response()->json(['message' => 'Vacina não encontrada'], 404);
+            return response()->json(['message' => 'Medicamento não encontrada'], 404);
         }
 
         $medicine->name = $request->name;
