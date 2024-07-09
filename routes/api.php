@@ -40,9 +40,12 @@ Route::get('/breeds/{id}', [BreedsController::class, 'show']);
 Route::post('/breeds', [BreedsController::class, 'store']);
 
 //Cadastro de animals
-Route::get('/animals', [AnimalsController::class, 'index']);
-Route::get('/animals/{id}', [AnimalsController::class, 'show']);
-Route::post('/animals', [AnimalsController::class, 'store']);
+Route::get('/animals', [AnimalsController::class, 'index']); //Mostrar todos os pets
+Route::get('/animals/{id}', [AnimalsController::class, 'show']); // Mostrar pet especifico
+Route::post('/animals', [AnimalsController::class, 'store']); // Cadastrar pet
+Route::put('/animals/{id}',[AnimalsController::class, 'update']); // Atualizar pet
+Route::delete('/animals/{id}', [AnimalsController::class, 'delete']); // Apagar pet
+//Imagem de animals
 Route::post('/animalsimage', [AnimalsImagesController::class, 'upload']);
 Route::get('/animalsimage/{file}', [AnimalsImagesController::class, 'download']);
 Route::get('/animalsimage', [AnimalsImagesController::class, 'index']);

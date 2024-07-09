@@ -55,4 +55,50 @@ class AnimalsController extends Controller
 
         return response()->json($animal);
     }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'gender' => 'required|string|in:M,F',
+            'birth' => 'required|date', 
+            'specie' => 'required|string',
+            'breed' => 'required|string',
+            'chip_number' => 'nullable|integer',
+            'status' => 'required|integer',
+            'ref_id_user' => 'required|integer',
+        ]);
+
+        $animal = Animals::find($id);
+        if(!$animal){
+            return response()->json(['message' => 'Animal não encontrado'], 404);
+        }
+
+        $animal->name = $request->name;
+        $animal->gender = $request->gender;
+        $animal->birth = $request->birth;
+        $animal->specie = $request->specie;
+        $animal->breed = $request->breed;
+        $animal->chip_number = $request->chip_number;
+        $animal->status = $request->status;
+        $animal->ref_id_user = $request->ref_id_user;
+
+        $animal->save();
+
+        return response()->json($animal);
+    }
+
+    public function delete($id)
+    {
+        $animal = Animals::find($id);
+
+        if(!$animal){
+            return response()->json(['message' => 'Animal não encontrado'], 404);
+        }
+
+        $animal->ativo = '0';
+        $animal->delete();
+        
+        return response()->json(['message' => 'Animal deletado com sucesso']);
+    }
 }
