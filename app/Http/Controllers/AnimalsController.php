@@ -97,6 +97,8 @@ class AnimalsController extends Controller
         }
 
         $animal->ativo = '0';
+        $animal->save();
+
         $animal->delete();
         
         return response()->json(['message' => 'Animal deletado com sucesso']);
