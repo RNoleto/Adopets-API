@@ -64,8 +64,8 @@ class AnimalsController extends Controller
             'birth' => 'required|date', 
             'specie' => 'required|string',
             'breed' => 'required|string',
-            'chip_number' => 'nullable|integer',
-            'status' => 'required|integer',
+            'chip_number' => 'nullable|numeric|max:20',
+            'status' => 'required|integer|in:0,1',
             'ref_id_user' => 'required|integer',
         ]);
 
