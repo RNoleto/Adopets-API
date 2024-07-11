@@ -24,7 +24,7 @@ class AnimalsController extends Controller
             'birth' => 'required|date', 
             'specie' => 'required|string',
             'breed' => 'required|string',
-            'chip_number' => 'nullable|integer',
+            'chip_number' => 'nullable|regex:/^\d{1,20}$/',
             'status' => 'required|integer',
             'ref_id_user' => 'required|integer',
         ]);
@@ -64,7 +64,7 @@ class AnimalsController extends Controller
             'birth' => 'required|date', 
             'specie' => 'required|string',
             'breed' => 'required|string',
-            'chip_number' => 'nullable|numeric|max:20',
+            'chip_number' => 'nullable|regex:/^\d{1,20}$/',
             'status' => 'required|integer|in:0,1',
             'ref_id_user' => 'required|integer',
         ]);
