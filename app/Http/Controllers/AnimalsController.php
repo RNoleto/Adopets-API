@@ -20,7 +20,7 @@ class AnimalsController extends Controller
     {
        $validatedData = $request->validate([
             'name' => 'required|string|max:255',
-            'gender' => 'required|string|in:M,F',
+            'gender' => 'required|string|max:6',
             'birth' => 'required|date', 
             'specie' => 'required|string',
             'breed' => 'required|string',
@@ -60,7 +60,7 @@ class AnimalsController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'gender' => 'required|string|in:M,F',
+            'gender' => 'required|string|max:6',
             'birth' => 'required|date', 
             'specie' => 'required|string',
             'breed' => 'required|string',
