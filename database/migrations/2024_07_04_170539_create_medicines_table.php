@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('medicines', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
-            $table->string('medicine')->nullable();
             $table->date('date')->nullable();
             $table->unsignedBigInteger('ref_id_animal')->nullable();
             $table->timestamp('deleted_at')->nullable();

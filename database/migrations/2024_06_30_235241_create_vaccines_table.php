@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->date('date')->nullable();
-            $table->string('local')->nullable();
             $table->unsignedBigInteger('ref_id_animal')->nullable();
             $table->timestamp('deleted_at')->nullable();
 

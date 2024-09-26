@@ -9,7 +9,7 @@ class Vaccines extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['name', 'local', 'date', 'ref_id_animal'];
+    protected $fillable = ['name', 'date', 'ref_id_animal'];
 
     protected $dates = ['deleted_at'];
 

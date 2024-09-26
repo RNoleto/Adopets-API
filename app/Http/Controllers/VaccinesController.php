@@ -18,14 +18,12 @@ class VaccinesController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'local' => 'required|string|max:255',
             'date' => 'required|date',
             'ref_id_animal' => 'required|integer',
         ]);
 
         $vaccine = new Vaccines();
         $vaccine->name = $request->name;
-        $vaccine->local = $request->local;
         $vaccine->date = $request->date;
         $vaccine->ref_id_animal = $request->ref_id_animal;
 
@@ -60,7 +58,6 @@ class VaccinesController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'local' => 'required|string|max:255',
             'date' => 'required|date',
             'ref_id_animal' => 'required|integer',
         ]);
@@ -72,7 +69,6 @@ class VaccinesController extends Controller
         }
 
         $vaccine->name = $request->name;
-        $vaccine->local = $request->local;
         $vaccine->date = $request->date;
         $vaccine->ref_id_animal = $request->ref_id_animal;
 

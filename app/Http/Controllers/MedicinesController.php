@@ -18,14 +18,12 @@ class MedicinesController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'medicine' => 'required|string|max:255',
             'date' => 'required|date',
             'ref_id_animal' => 'required|integer',
         ]);
 
         $medicine = new Medicines();
         $medicine->name = $request->name;
-        $medicine->medicine = $request->medicine;
         $medicine->date = $request->date;
         $medicine->ref_id_animal = $request->ref_id_animal;
 
@@ -60,7 +58,6 @@ class MedicinesController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'medicine' => 'required|string|max:255',
             'date' => 'required|date',
             'ref_id_animal' => 'required|integer',
         ]);
@@ -72,7 +69,6 @@ class MedicinesController extends Controller
         }
 
         $medicine->name = $request->name;
-        $medicine->local = $request->local;
         $medicine->date = $request->date;
         $medicine->ref_id_animal = $request->ref_id_animal;
 

@@ -9,7 +9,7 @@ class Medicines extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['name', 'medicine', 'date', 'ref_id_animal'];
+    protected $fillable = ['name', 'date', 'ref_id_animal'];
 
     protected $dates = ['deleted_at'];
 
